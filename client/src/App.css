@@ -1,0 +1,415 @@
+body {
+       margin: 0;
+       padding: 0;
+       font-family: 'Courier New', Courier, monospace;
+}
+.login-container {
+       width: 100%;
+       height: 100vh;
+       background-image: url("./images/login.jpg");
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+}
+.login-overlay {
+       width: 100%;
+       height: 100vh;
+       position: absolute;
+       background-color: #111111e0;
+       z-index: 99;
+}
+.login-inputs {
+       width: 35%;
+       height: 35%;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       color: #fff;
+       z-index: 999;
+}
+.login-inputs input, .login-inputs label, .login-inputs button {
+       z-index: 999;
+       font-size: 1.75em;
+       color: #fff;
+       font-family: 'Courier New', Courier, monospace;
+}
+.login-inputs input{
+       background-color: transparent;
+       border: none;
+       border-bottom: 1px solid #fff;
+}
+.login-inputs button {
+       background-color: rgb(85, 158, 218);
+       border: none;
+       color: #fff;
+       font-family: 'Courier New', Courier, monospace;
+       transition: 0.2s ease;
+}
+.login-inputs button:hover {
+       background-color: rgb(68, 127, 175);
+       transition: 0.2s ease;
+       cursor: pointer;
+}
+.create-btn{
+       width:100%;
+       display: flex;
+       flex-direction: row;
+       justify-content: space-evenly;
+       align-items: center;
+       margin-left: auto;
+       margin-right: auto;
+       padding-top: 0.25em;
+       padding-bottom: 0.25em;
+}
+#create {
+       background-color: rgb(85, 158, 218);
+       border: none;
+       color: #fff;
+       font-family: 'Courier New', Courier, monospace;
+       transition: 0.2s ease;
+       font-size: 2em;
+       padding-left: 0.25em;
+       padding-right: 0.25em;
+       text-decoration: none;
+       border: 1px solid #fff;
+}
+#dash-bookmark {
+       margin-bottom: 0.5em;
+}
+
+#create:hover {
+       background-color: #fff;
+       cursor: pointer;
+       border: 1px solid rgb(85, 158, 218);
+       transition: 0.2s ease;
+       color: rgb(85, 158, 218);
+}
+.signup-link {
+       color: #fff;
+}
+.setup-text-container {
+       width: 35%;
+       z-index: 999;
+}
+.setup-text-container button{
+       background-color: rgb(68, 0, 0);
+       font-size: 1.75em;
+       font-family: 'Courier New', Courier, monospace;
+       border: none;
+       padding-left: .5em;
+       padding-right: .5em;
+       transition: 0.2s ease;
+}
+.setup-text-container button:hover {
+       background-color: rgb(114, 3, 3);
+       transition: 0.2s ease;
+       cursor: pointer;
+}
+.setup-text-container p, .setup-text-container h1, .setup-text-container button {
+       z-index: 999 !important;
+       color: #fff;
+}
+.dash-logo {
+       background-color: rgb(255, 255, 255);
+       width: 70px;
+       height: 90px;
+       color: rgb(68, 127, 175);
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-size: 2em;
+       transition: 0.2s ease;
+       text-decoration: none;
+}
+.dash-logo:hover {
+       background-color: rgb(113, 183, 241);
+       color: #fff;
+       transition: 0.2s ease;
+       cursor: pointer;
+}
+.username-link{
+       cursor: pointer;
+}
+.dashboard-header {
+       background-color: rgb(68, 127, 175);
+       color: #fff;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding-top: .5em;
+       padding-bottom: .5em;
+       padding-left: .5em;
+
+}
+.dash-profileImg {
+       width: 100px;
+       height: 100px;
+       padding-right: .5em;
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items:center;
+}
+.profileImg{
+       width: 100%;
+       width: 100px;
+       height: 100px;
+       object-fit: cover;
+       border-radius: 50%;
+}
+.writing-container {
+       width: 100%;
+       height: auto;
+       margin-top: 2em;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+}
+.writing-text-container {
+       display: flex;
+       flex-direction: column;
+       width: 90%;
+}
+.writing-text-container input {
+       font-size: 1.75em;
+       font-family: 'Courier New', Courier, monospace;
+       margin-bottom: .25em;
+}
+.writing-text-container textarea {
+       height: 50vh;
+       font-size: 1em;
+       font-family: 'Courier New', Courier, monospace;
+       resize: none;
+       margin-bottom: 0.25em;
+}
+.dashprops-container {
+       width: 60%;
+       margin-left: auto;
+       margin-right: auto;
+}
+.dash-img {
+       width: 80px;
+       height: 80px;
+       border-radius: 50%;
+}
+.dashprops-author{
+       display: flex;
+       align-items: center;
+       width: 25%;
+       justify-content: space-between;
+       font-size: 2em;
+       font-weight: bold;
+}
+.title {
+       text-decoration: underline;
+       font-size: 2em;
+}
+#comments input{
+       width: 80%;
+       font-size: 2em;
+}
+#comments button {
+       background-color: rgb(85, 158, 218);
+       border: none;
+       color: #fff;
+       font-size: 2em;
+       margin-left: 0.5em;
+}
+#comments button:hover {
+       background-color: rgb(113, 183, 241);
+       cursor: pointer;
+       transition: 0.2s ease;
+}
+.open-comments{
+       color: rgb(85, 158, 218);
+       font-size: 1.25em;
+       font-weight: bold;
+       cursor: pointer;
+}
+.profile-container {
+       width: 100%;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+}
+.profile-bio {
+       border-bottom: 1px solid rgb(233, 233, 233);
+       width: 100%;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       padding-bottom: 2em;
+}
+.profile-container h1{
+       text-align: center;
+}
+.profile-img {
+       width: 250px;
+       height: 250px;
+       border-radius: 50%;
+       margin-left: auto;
+       margin-right: auto;
+       object-fit: cover;
+}
+.profile-posts {
+       text-align: center;
+       width: 90%;
+       border-right: 1px solid rgb(233, 233, 233);
+       border-left: 1px solid rgb(233, 233, 233);
+
+}
+.comment-profileImg{
+       width: 35%;
+       border-radius: 50%;
+}
+.comment-bio {
+       display: flex;
+       align-items: center;
+       width: 15%;
+       justify-content: space-between;
+}
+.comment-profileImg {
+       width: 55px;
+       height: 55px;
+       object-fit: cover;
+}
+.comment-bio p {
+       font-weight: bold;
+}
+.comment-text-container {
+       display: flex;
+       flex-direction: column-reverse;
+}
+.fa-bookmark {
+       color: rgb(68, 127, 175);
+       font-size: 2em;
+}
+.fa-bookmark:hover {
+       color: rgb(113, 183, 241);
+       cursor: pointer;
+}
+.fav-container {
+       width: 50%;
+       margin-left: auto;
+       margin-right: auto;
+       border-right: 1px solid rgb(233, 233, 233);
+       border-left:  1px solid rgb(233, 233, 233);
+      
+}
+.fav-props-container{
+       border-bottom: 1px solid rgb(233, 233, 233);
+       padding-left: 0.5em;
+       padding-right: 0.5em;
+}
+.change-img-btn {
+       background-color: rgb(85, 158, 218);
+       margin-top: 1em;
+       border: none;
+       width: fit-content;
+       padding-left: 0.25em;
+       padding-right: 0.25em;       
+       color: #fff;
+       font-family: 'Courier New', Courier, monospace;
+       font-size: 1.25em;
+       transition: 0.3s ease;
+       border: 1px solid #fff;
+}
+.change-img-btn:hover {
+       cursor: pointer;
+       background-color: #fff;
+       border: 1px solid rgb(85, 158, 218);
+       color: rgb(85, 158, 218);
+       transition: 0.3s ease;
+}
+.post-btn:hover {
+       background-color: #fff !important;
+       color: rgb(85, 158, 218) !important;
+       border: 1px solid rgb(85, 158, 218) !important;
+}
+.remove-btn {
+       background-color: rgb(85, 158, 218);
+       color: #fff;
+       font-size: 1.5em;
+       border: 1px solid rgb(85, 158, 218);
+       margin-bottom: 0.25em;
+       transition: 0.3s ease;
+}
+.remove-btn:hover{
+       background-color: #fff;
+       color: rgb(85, 158, 218);
+       border: 1px solid rgb(85, 158, 218);
+       transition: 0.3s ease;
+       cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+       .login-inputs{
+              width: 95%;
+
+       }
+       .login-container {
+              width: 100%;
+              height: 100vh;
+              background-image: url("./images/login.jpg");
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+       }
+       .profileImg{
+              width: 100%;
+       }
+       .dashboard-header {
+              background-color: rgb(85, 158, 218);
+              color: #fff;
+              display: flex;
+              justify-content: space-between !important;
+              align-items: center;
+              padding-top: .5em;
+              padding-bottom: .5em;       
+              width: 98%;
+              margin-left: auto;
+              margin-right: auto;
+       }
+       .profileImg {
+              width: 60px;
+              height: 60px;
+              object-fit: cover;
+       }
+       .dashboard-header h1 {
+              font-size: 1.5em;
+       }
+       .dash-logo{
+              width: 15%;
+       }
+       .fa-bookmark{
+              font-size: 1.5em;
+              vertical-align: middle !important;
+       }
+       .comment-input{
+              width: 100%;
+              font-size: 1em;
+       }
+       .dashprops-container {
+              width: 90%;
+              margin-left: auto;
+              margin-right: auto;
+              border-bottom: 1px solid rgb(233, 233, 233);
+       }
+       .post-btn {
+              margin-top: 15px;
+              margin-left: auto;
+       }
+       .fav-props-container{
+              width: 90%;
+       }
+       .dash-img {
+              width: 60px;
+              height: 60px;
+       }
+     }
