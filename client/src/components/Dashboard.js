@@ -8,13 +8,17 @@ function Dashboard() {
   const [pieces, setPieces] = useState();
   const getUser = () => {
     axios
-      .get(`http://localhost:3001/users/${localStorage.getItem("username")}`)
+      .get(
+        `https://post-poem.herokuapp.com/users/${localStorage.getItem(
+          "username"
+        )}`
+      )
       .then((response) => {
         setProfileImg(response.data.profile_picture);
       });
   };
   const getPieces = () => {
-    axios.get("http://localhost:3001/poems/all").then((response) => {
+    axios.get("https://post-poem.herokuapp.com/poems/all").then((response) => {
       setPieces(
         response.data.map((el) => {
           return (

@@ -4,7 +4,7 @@ import axios from "axios";
 function FavoriteProps(props) {
   const removeFav = () => {
     axios
-      .delete(`http://localhost:3001/favorite/delete/${props.id}`)
+      .delete(`https://post-poem.herokuapp.com/favorite/delete/${props.id}`)
       .then((response) => {
         console.log(response);
         window.location.reload();

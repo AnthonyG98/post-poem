@@ -13,7 +13,11 @@ function Other() {
 
   const getUser = () => {
     axios
-      .get(`http://localhost:3001/users/${localStorage.getItem("username")}`)
+      .get(
+        `https://post-poem.herokuapp.com/users/${localStorage.getItem(
+          "username"
+        )}`
+      )
       .then((response) => {
         setProfileImg(response.data.profile_picture);
         //  setUsername(response.data.username);
@@ -22,17 +26,23 @@ function Other() {
       });
   };
   const getUserPoems = (poemId) => {
-    axios.get(`http://localhost:3001/poems/${poemId}`).then((response) => {
-      setPoem(
-        response.data.map((el) => {
-          return <Profileprops username={el.author} poem={el.piece} />;
-        })
-      );
-    });
+    axios
+      .get(`https://post-poem.herokuapp.com/poems/${poemId}`)
+      .then((response) => {
+        setPoem(
+          response.data.map((el) => {
+            return <Profileprops username={el.author} poem={el.piece} />;
+          })
+        );
+      });
   };
   const getOtherUser = () => {
     axios
-      .get(`http://localhost:3001/users/${localStorage.getItem("otherUser")}`)
+      .get(
+        `https://post-poem.herokuapp.com/users/${localStorage.getItem(
+          "otherUser"
+        )}`
+      )
       .then((response) => {
         setOtherImg(response.data.profile_picture);
         setUsername(response.data.username);

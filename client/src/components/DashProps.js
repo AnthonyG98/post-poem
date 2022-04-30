@@ -14,7 +14,11 @@ function DashProps(props) {
 
   const getUser = () => {
     axios
-      .get(`http://localhost:3001/users/${localStorage.getItem("username")}`)
+      .get(
+        `https://post-poem.herokuapp.com/users/${localStorage.getItem(
+          "username"
+        )}`
+      )
       .then((response) => {
         setProfileImg(response.data.profile_picture);
         setUsername(response.data.username);
@@ -29,29 +33,31 @@ function DashProps(props) {
       poemId: poemId,
     };
     axios
-      .post("http://localhost:3001/comment", commentData)
+      .post("https://post-poem.herokuapp.com/comment", commentData)
       .then((response) => {
         console.log(response);
       });
   };
   const openComments = (poemId) => {
-    axios.get(`http://localhost:3001/comment/${poemId}`).then((response) => {
-      setCommentContainer(
-        response.data.map((el) => {
-          return (
-            <CommentProps
-              profileImg={el.profile_picture}
-              username={el.username}
-              comment={el.comment}
-            />
-          );
-        })
-      );
-    });
+    axios
+      .get(`https://post-poem.herokuapp.com/comment/${poemId}`)
+      .then((response) => {
+        setCommentContainer(
+          response.data.map((el) => {
+            return (
+              <CommentProps
+                profileImg={el.profile_picture}
+                username={el.username}
+                comment={el.comment}
+              />
+            );
+          })
+        );
+      });
   };
   const addToFavorite = (poemId) => {
     axios
-      .get(`http://localhost:3001/poems/piece/${poemId}`)
+      .get(`https://post-poem.herokuapp.com/poems/piece/${poemId}`)
       .then((response) => {
         console.log(response);
         const favoriteData = {
@@ -61,7 +67,7 @@ function DashProps(props) {
           UserId: userId,
         };
         axios
-          .post("http://localhost:3001/favorite", favoriteData)
+          .post("https://post-poem.herokuapp.com/favorite", favoriteData)
           .then((response) => {
             console.log(response);
           });

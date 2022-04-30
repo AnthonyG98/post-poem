@@ -13,7 +13,11 @@ function Write() {
 
   const getUser = () => {
     axios
-      .get(`http://localhost:3001/users/${localStorage.getItem("username")}`)
+      .get(
+        `https://post-poem.herokuapp.com/users/${localStorage.getItem(
+          "username"
+        )}`
+      )
       .then((response) => {
         setProfileImg(response.data.profile_picture);
         setAuthor(response.data.username);
@@ -28,9 +32,11 @@ function Write() {
       piece: piece,
       UserId: userId,
     };
-    axios.post("http://localhost:3001/poems", publishData).then((response) => {
-      history("/dashboard");
-    });
+    axios
+      .post("https://post-poem.herokuapp.com/poems", publishData)
+      .then((response) => {
+        history("/dashboard");
+      });
   };
   useEffect(() => {
     if (!localStorage.getItem("username")) {

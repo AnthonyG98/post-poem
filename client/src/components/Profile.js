@@ -14,13 +14,15 @@ function Profile() {
   const [refresh, setRefresh] = useState(false);
 
   const getUserPoems = (id) => {
-    axios.get(`http://localhost:3001/poems/${id}`).then((response) => {
-      setPoem(
-        response.data.map((el) => {
-          return <Profileprops username={el.author} poem={el.piece} />;
-        })
-      );
-    });
+    axios
+      .get(`https://post-poem.herokuapp.com/poems/${id}`)
+      .then((response) => {
+        setPoem(
+          response.data.map((el) => {
+            return <Profileprops username={el.author} poem={el.piece} />;
+          })
+        );
+      });
   };
 
   const changeProfileImg = () => {
@@ -42,12 +44,18 @@ function Profile() {
           profile_picture: fileName,
         };
         axios
-          .put(`http://localhost:3001/poems/profile/${userId}`, postImageData)
+          .put(
+            `https://post-poem.herokuapp.com/poems/profile/${userId}`,
+            postImageData
+          )
           .then((response) => {
             console.log(response);
           });
         axios
-          .put(`http://localhost:3001/users/profile/${userId}`, imageData)
+          .put(
+            `https://post-poem.herokuapp.com/users/profile/${userId}`,
+            imageData
+          )
           .then((response) => {
             console.log(response);
           });
@@ -55,7 +63,11 @@ function Profile() {
   };
   const getUser = () => {
     axios
-      .get(`http://localhost:3001/users/${localStorage.getItem("username")}`)
+      .get(
+        `https://post-poem.herokuapp.com/users/${localStorage.getItem(
+          "username"
+        )}`
+      )
       .then((response) => {
         setProfileImg(response.data.profile_picture);
         setUsername(response.data.username);

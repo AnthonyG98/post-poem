@@ -5,7 +5,11 @@ function Setup() {
   let history = useNavigate();
   const getUser = () => {
     axios
-      .get(`http://localhost:3001/users/${localStorage.getItem("username")}`)
+      .get(
+        `https://post-poem.herokuapp.com/users/${localStorage.getItem(
+          "username"
+        )}`
+      )
       .then((response) => {
         console.log(response);
         history("/dashboard");

@@ -10,23 +10,29 @@ function Favorites() {
 
   const getUser = () => {
     axios
-      .get(`http://localhost:3001/users/${localStorage.getItem("username")}`)
+      .get(
+        `https://post-poem.herokuapp.com/users/${localStorage.getItem(
+          "username"
+        )}`
+      )
       .then((response) => {
         getFavorites(response.data.id);
         setProfileImg(response.data.profile_picture);
       });
   };
   const getFavorites = (user) => {
-    axios.get(`http://localhost:3001/favorite/${user}`).then((response) => {
-      console.log(response.data);
-      setFavorites(
-        response.data.map((el) => {
-          return (
-            <FavoriteProps author={el.author} text={el.piece} id={el.id} />
-          );
-        })
-      );
-    });
+    axios
+      .get(`https://post-poem.herokuapp.com/favorite/${user}`)
+      .then((response) => {
+        console.log(response.data);
+        setFavorites(
+          response.data.map((el) => {
+            return (
+              <FavoriteProps author={el.author} text={el.piece} id={el.id} />
+            );
+          })
+        );
+      });
   };
 
   useEffect(() => {

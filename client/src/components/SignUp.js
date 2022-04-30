@@ -14,7 +14,7 @@ function SignUp() {
       profile_picture: "default_nlfrji",
     };
     const response = await axios.post(
-      "http://localhost:3001/users",
+      "https://post-poem.herokuapp.com/users",
       signUpData
     );
     localStorage.setItem("username", response.data);
