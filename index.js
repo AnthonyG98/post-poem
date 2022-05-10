@@ -9,8 +9,9 @@ const corsOptions = {
   Accept: "application/json",
   "Content-Type": "application/json",
   credentials: true,
-  Headers: {
-    "access-control-allow-credentials": true,
+  headers: {
+    "access-control-allow-credentials":
+      "https://6279e77aeede7730607d6216--admirable-nasturtium-b65094.netlify.app/",
   },
   optionSuccessStatus: 200,
 };
