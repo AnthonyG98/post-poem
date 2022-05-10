@@ -5,12 +5,8 @@ require("dotenv").config();
 
 app.use(express.json());
 const corsOptions = {
-  origin: "*",
+  origin: true,
   Accept: "application/json",
-  "Content-Type": "application/json",
-  credentials: true,
-  "access-control-allow-origin": "*",
-  "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
