@@ -10,8 +10,7 @@ const corsOptions = {
   "Content-Type": "application/json",
   credentials: true,
   headers: {
-    "access-control-allow-credentials":
-      "https://6279e77aeede7730607d6216--admirable-nasturtium-b65094.netlify.app/",
+    "access-control-allow-origin": "*",
   },
   optionSuccessStatus: 200,
 };
