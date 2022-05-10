@@ -9,9 +9,8 @@ const corsOptions = {
   Accept: "application/json",
   "Content-Type": "application/json",
   credentials: true,
-  headers: {
-    "access-control-allow-origin": "*",
-  },
+  "access-control-allow-origin": "*",
+  "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
