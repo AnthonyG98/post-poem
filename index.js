@@ -4,12 +4,12 @@ const cors = require("cors");
 require("dotenv").config();
 
 app.use(express.json());
-const corsOptions = {
-  origin: "*",
-  Accept: "*",
-  optionSuccessStatus: 200,
-};
-app.use(cors({ origin: "*" }));
+// const corsOptions = {
+//   origin: "*",
+//   Accept: "*",
+//   optionSuccessStatus: 200,
+// };
+app.use(cors());
 
 const db = require("./models");
 
