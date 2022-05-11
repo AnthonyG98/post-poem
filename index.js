@@ -4,13 +4,12 @@ const cors = require("cors");
 require("dotenv").config();
 
 app.use(express.json());
-// const corsOptions = {
-//   origin: "*",
-//   Accept: "*",
-//   optionSuccessStatus: 200,
-// };
-app.use(cors());
-
+const corsOptions = {
+  origin: "*",
+  Accept: "*",
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 const db = require("./models");
 
 //Routes
