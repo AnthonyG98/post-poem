@@ -10,6 +10,7 @@ const corsOptions = {
   credentials: true,
   optionSuccessStatus: 200,
 };
+app.setHeader("Access-Control-Allow-Origin", "*");
 app.use(cors(corsOptions));
 
 const db = require("./models");
