@@ -5,7 +5,7 @@ require("dotenv").config();
 
 app.use(express.json());
 const corsOptions = {
-  origin: "https://postpoem.netlify.app",
+  origin: "https://post-poem.herokuapp.com",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 app.use(cors(corsOptions));
