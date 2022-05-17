@@ -4,19 +4,23 @@ const cors = require("cors");
 require("dotenv").config();
 
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: "https://postpoem.netlify.app/",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+app.use(cors(corsOptions));
 
 const db = require("./models");
 
 //Routes
 const users = require("./routes/Users");
-app.use("/users", users);
+app.use("/users", users, cors(corsOptions));
 const poems = require("./routes/Pieces");
-app.use("/poems", poems);
+app.use("/poems", poems, cors(corsOptions));
 const comment = require("./routes/Comment");
-app.use("/comment", comment);
+app.use("/comment", comment, cors(corsOptions));
 const favorites = require("./routes/Favorites");
-app.use("/favorite", favorites);
+app.use("/favorite", favorites, cors(corsOptions));
 
 db.sequelize
   .sync()
