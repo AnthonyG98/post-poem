@@ -4,14 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 app.use(express.json());
-const corsOptions = {
-  origin: "*",
-  Accept: "*",
-  credentials: true,
-  optionSuccessStatus: 200,
-};
-app.setHeader("Access-Control-Allow-Origin", "*");
-app.use(cors(corsOptions));
+app.use(cors());
 
 const db = require("./models");
 
