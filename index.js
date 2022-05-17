@@ -5,9 +5,9 @@ require("dotenv").config();
 
 app.use(express.json());
 const corsOptions = {
-  "Access-Control-Allow-Origin":
-    "https://admirable-nasturtium-b65094.netlify.app/",
+  origin: "https://admirable-nasturtium-b65094.netlify.app/",
   Accept: "*",
+  credentials: true,
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
