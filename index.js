@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 app.use(express.json());
-app.use(cors());
+express.use(cors());
 
 const db = require("./models");
 
@@ -19,7 +19,7 @@ app.use("/favorite", favorites);
 
 db.sequelize
   .sync()
-  .then(() => {
+  .then(() => {      
     app.listen(process.env.PORT || 3001, () => {
       console.log("Server Started...");
     });
