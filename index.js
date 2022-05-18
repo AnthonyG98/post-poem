@@ -12,13 +12,13 @@ const db = require("./models");
 
 //Routes
 const users = require("./routes/Users");
-app.use("/users", users, cors(corsOptions));
+app.use("/users", users, "Access-Control-Allow-Origin", "*");
 const poems = require("./routes/Pieces");
-app.use("/poems", poems, cors(corsOptions));
+app.use("/poems", poems);
 const comment = require("./routes/Comment");
-app.use("/comment", comment, cors(corsOptions));
+app.use("/comment", comment);
 const favorites = require("./routes/Favorites");
-app.use("/favorite", favorites, cors(corsOptions));
+app.use("/favorite", favorites);
 
 db.sequelize
   .sync()
