@@ -20,7 +20,7 @@ const db = require("./models");
 
 //Routes
 const users = require("./routes/Users");
-app.use("/users", users);
+app.use("/users", users, cors());
 const poems = require("./routes/Pieces");
 app.use("/poems", poems);
 const comment = require("./routes/Comment");
