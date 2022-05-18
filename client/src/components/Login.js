@@ -12,6 +12,7 @@ function Login() {
       username: username,
       password: password,
     };
+    //Needs to be updated to look like signIn request because CORS error
     axios
       .post("https://post-poem.herokuapp.com/users/login", loginData)
       .then((response) => {
