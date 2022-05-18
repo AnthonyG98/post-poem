@@ -10,7 +10,7 @@ app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
-app.use(cors());
+// app.use(cors());
 
 const db = require("./models");
 
