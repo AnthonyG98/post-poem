@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { Users } = require("../models");
 const bcrypt = require("bcrypt");
-
-router.post("/", async (req, res) => {
+const cors = require("cors");
+router.post("/", cors(), async (req, res) => {
   const { username, profile_picture, password } = req.body;
   const createdUser = bcrypt.hash(password, 10).then((hash) => {
     Users.create({
@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
   });
   res.json(username);
 });
-router.post("/login", async (req, res) => {
+router.post("/login", cors(), async (req, res) => {
   const { username, password } = req.body;
   const user = await Users.findOne({ where: { username: username } });
   if (!user) {
@@ -29,13 +29,13 @@ router.post("/login", async (req, res) => {
     });
   }
 });
-router.get("/:user", async (req, res) => {
+router.get("/:user", cors(), async (req, res) => {
   const user = req.params.user;
   const userProfile = await Users.findOne({ where: { username: user } });
 
   res.json(userProfile);
 });
-router.put("/profile/:id", async (req, res) => {
+router.put("/profile/:id", cors(), async (req, res) => {
   const profilePicture = req.params.id;
   const image = await Users.findOne({
     where: { id: profilePicture },
