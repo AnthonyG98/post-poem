@@ -3,8 +3,16 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 
-app.use(function (req, res, next) {
-  res.set("Access-Control-Allow-Origin", "*");
+app.use((req, res, next) => {
+  //allow access from every, elminate CORS
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.removeHeader("x-powered-by");
+  //set the allowed HTTP methods to be requested
+  res.setHeader("Access-Control-Allow-Methods", "POST");
+  //headers clients can use in their requests
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  //allow request to continue and be handled by routes
+  next();
 });
 app.use(cors());
 
@@ -12,7 +20,7 @@ const db = require("./models");
 
 //Routes
 const users = require("./routes/Users");
-app.use("/users", users, "Access-Control-Allow-Origin", "*");
+app.use("/users", users);
 const poems = require("./routes/Pieces");
 app.use("/poems", poems);
 const comment = require("./routes/Comment");
