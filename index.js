@@ -3,12 +3,14 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 
-app.use(express.json());
-const corsOptions = {
-  origin: "https://post-poem.herokuapp.com",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-app.use(cors(corsOptions));
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
+app.use(cors());
 
 const db = require("./models");
 
