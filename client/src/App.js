@@ -8,6 +8,7 @@ import Write from "./components/Write";
 import Profile from "./components/Profile";
 import Favorites from "./components/Favorites";
 import Other from "./components/Other";
+
 function App() {
   return (
     <>

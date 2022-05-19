@@ -7,17 +7,17 @@ function Login() {
 
   let history = useNavigate();
 
-  const login = () => {
+  const login = async () => {
     const loginData = {
       username: username,
       password: password,
     };
-    axios
-      .post("https://post-poem.herokuapp.com/users/login", loginData)
-      .then((response) => {
-        history("/dashboard");
-        localStorage.setItem("username", username);
-      });
+    const response = await axios.post(
+      "https://post-poem.herokuapp.com/users/login",
+      loginData
+    );
+    localStorage.setItem("username", username);
+    history("/dashboard");
   };
   return (
     <div className="login-container">
@@ -47,16 +47,12 @@ function Login() {
           </Link>
         </p>
         <p>
-          Or continue as{" "}
-          <button
-            onClick={() => {
-              setUsername("Guest");
-              setPassword("ASDF1234");
-              login();
-            }}
-          >
-            Guest
-          </button>
+          To Login as Guest:
+          <br />
+          Username: Guest
+          <br />
+          Password: ASDF1234
+          <br />
         </p>
       </div>
     </div>

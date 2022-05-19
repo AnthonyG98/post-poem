@@ -12,6 +12,7 @@ router.post("/", async (req, res) => {
       password: hash,
     });
   });
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.json(username);
 });
 router.post("/login", async (req, res) => {
@@ -24,6 +25,7 @@ router.post("/login", async (req, res) => {
       if (!match) {
         res.json({ error: "Wrong username or password" });
       } else {
+        res.setHeader("Access-Control-Allow-Origin", "*");
         res.json("Logged in");
       }
     });
@@ -32,10 +34,11 @@ router.post("/login", async (req, res) => {
 router.get("/:user", async (req, res) => {
   const user = req.params.user;
   const userProfile = await Users.findOne({ where: { username: user } });
-
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.json(userProfile);
 });
 router.put("/profile/:id", async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   const profilePicture = req.params.id;
   const image = await Users.findOne({
     where: { id: profilePicture },
