@@ -12,12 +12,22 @@ function Login() {
       username: username,
       password: password,
     };
+<<<<<<< HEAD
     const response = await axios.post(
       "https://post-poem.herokuapp.com/users/login",
       loginData
     );
     localStorage.setItem("username", username);
     history("/dashboard");
+=======
+    //Needs to be updated to look like signIn request because CORS error
+    axios
+      .post("https://post-poem.herokuapp.com/users/login", loginData)
+      .then((response) => {
+        history("/dashboard");
+        localStorage.setItem("username", username);
+      });
+>>>>>>> cd60558f49cfb393fb490ac1d4635634b0bc5fc8
   };
   return (
     <div className="login-container">
